@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Acceso Universitario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles/home.css')}}">
+</head>
+<body>
+    <div class="content">
+        {% if bienvenida %}
+        <div class="container result-box">
+            <div class="icon-box">✨</div>
+            <p class="welcome-text">Es un placer tenerte con nosotros, <span class="highlight">{{ nombre }}</span></p>
+        </div>
+        {% else %}
+        <div class="container form-box">
+            <h1>Registro de Usuario</h1>
+            <p class="subtitle">Introduce tus datos para acceder al sistema universitario</p>
+            <form id="userForm" method="post">
+                <div class="input-group">
+                    <input type="text" name="nombreInput" id="nombreInput" placeholder="Introduce tu nombre" class="url-input" required autocomplete="off">
+                </div>
+                <button type="submit" id="submitBtn" class="submit-btn">Ingresar al Sistema</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

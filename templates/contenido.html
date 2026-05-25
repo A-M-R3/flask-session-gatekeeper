@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenido del Sistema</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles/home.css')}}">
+</head>
+<body>
+    <div class="content">
+        <div class="container content-box">
+            {% if nombre %}
+            <div class="icon-box">📂</div>
+            <h1>Sección de Contenidos</h1>
+            <p class="welcome-text">Lo siento, <span class="highlight">{{ nombre }}</span>, de momento no hay contenido disponible</p>
+            {% else %}
+            <div class="icon-box error-icon">🔒</div>
+            <h1>Acceso Restringido</h1>
+            <p class="welcome-text">No puedo mostrarte el contenido, sin saber quién eres. Por favor entra tu nombre en...</p>
+            <a href="{{ url_for('home') }}" class="back-link">Inicio</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
